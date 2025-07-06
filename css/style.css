@@ -1,0 +1,132 @@
+
+.book button {
+    color:white;
+    border: 1px solid;
+    width: 220px;
+    height: 55px;
+border-radius: 0%;
+background-color:#ad8b3a;
+
+}
+
+.fs-5
+{
+    color: white;
+}
+
+.scrolled {
+    background-color: white !important;
+    transition: background-color 0.3s ease;
+  }
+
+  .scrolled .nav-link,
+  .scrolled .navbar-brand,
+  .scrolled .dropdown-toggle {
+    color: white !important;
+  }
+
+  .goldtxt {
+    color: white !important;
+  }
+
+  .scrolled .goldtxt {
+    color: #bfa25a !important;
+  }
+
+  .threeslide button
+  {
+    height: 50px;
+    width: 150px;
+    background-color: #ad8b3a;
+    color: white;
+    border: none;
+    margin-left: -16px;
+  }
+
+
+
+
+  /* crousle bottom */
+  .background-slider {
+  
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .background-slider .splide__slide img {
+  
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+  }
+
+  .foreground-carousel {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin-left: 280px;
+    margin-top: -800px;
+    background-size: cover;
+   
+  }
+
+  .foreground-carousel .splide__slide img {
+    height: 400px;
+  
+  }
+
+  /* footer */
+
+  .footer {
+    padding: 50px 20px;
+    background-color:black;
+  }
+  .footer h6 {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 15px;
+  }
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .subscribe-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    border-radius: 0;
+  }
+  .subscribe-input::placeholder {
+    color: #ccc;
+  }
+  .subscribe-btn {
+    background-color: #bbb;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    font-weight: 600;
+  }
+  .social-icons i {
+    font-size: 1.3rem;
+    margin-right: 15px;
+    color: white;
+  }
+  .brands img {
+    max-height: 40px;
+    margin: 10px;
+    /* filter: brightness(0) invert(1); */
+  }
+  hr {
+    border-color: #333;
+    margin: 40px 0;
+  }
