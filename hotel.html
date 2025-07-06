@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HOTEL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/splide.min.css">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-container img.bg-img {
+            width: 100%;
+            height: 90%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: white;
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-box {
+            margin-top: 30px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            padding: 10px 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+
+        .search-box i {
+            color: gray;
+            font-size: 1.3rem;
+        }
+
+        .explore-section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #f8f6f1;
+        }
+
+        .explore-section h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .explore-section h2::before,
+        .explore-section h2::after {
+            content: "";
+            height: 2px;
+            width: 50px;
+            background-color: #333;
+            position: absolute;
+            top: 50%;
+        }
+
+        .explore-section h2::before {
+            left: -60px;
+        }
+
+        .explore-section h2::after {
+            right: -60px;
+        }
+
+        .explore-section p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        /* nav */
+
+        .book button {
+            color: white;
+            border: 1px solid;
+            width: 220px;
+            height: 55px;
+            border-radius: 0%;
+            background-color: #ad8b3a;
+
+        }
+
+        .fs-5 {
+            color: white;
+        }
+
+        .scrolled {
+            background-color: white !important;
+            transition: background-color 0.3s ease;
+        }
+
+        .scrolled .nav-link,
+        .scrolled .navbar-brand,
+        .scrolled .dropdown-toggle {
+            color: white !important;
+        }
+
+        .goldtxt {
+            color: white !important;
+        }
+
+        .scrolled .goldtxt {
+            color: #bfa25a !important;
+        }
+
+        .threeslide button {
+            height: 50px;
+            width: 150px;
+            background-color: #ad8b3a;
+            color: white;
+            border: none;
+            margin-left: -16px;
+        }
+
+        /* nav tab */
+        .nav-tabs {
+            justify-content: center;
+            border-bottom: none;
+        }
+
+        .nav-link.active {
+            border: none;
+            border-bottom: 2px solid #000;
+        }
+
+        .destination img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .destination-name {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .view-buttons {
+            margin-top: 30px;
+        }
+
+        .view-buttons button {
+            border: none;
+            background: transparent;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        /* big card */
+        .search-bar input {
+            border: none;
+            border-bottom: 2px solid #ccc;
+            border-radius: 0;
+            outline: none;
+            box-shadow: none;
+        }
+
+        .search-bar input:focus {
+            border-color: #b59843;
+            box-shadow: none;
+        }
+
+        .hotel-card {
+            border: none;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .hotel-card .card-body {
+            padding: 1.5rem;
+        }
+
+        .hotel-card .btn-gold {
+            background-color: #b59843;
+            color: white;
+            font-weight: bold;
+            border: none;
+            padding: 0.5rem 1.5rem;
+        }
+
+        .hotel-card .btn-gold:hover {
+            background-color: #a38334;
+        }
+
+        .hotel-card .visit-link {
+            color: #b59843;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .hotel-card .visit-link:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+
+        
+        /* crousle bottom */
+        .background-slider {
+
+            width: 100%;
+            height: 100vh;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .background-slider .splide__slide img {
+
+            width: 100%;
+            height: 80vh;
+            object-fit: cover;
+        }
+
+        .foreground-carousel {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin-left: 280px;
+            margin-top: -800px;
+            background-size: cover;
+
+        }
+
+        .foreground-carousel .splide__slide img {
+            height: 400px;
+
+        }
+
+        /* footer */
+
+        .footer {
+            padding: 50px 20px;
+            background-color: black;
+        }
+
+        .footer h6 {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .subscribe-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid white;
+            color: white;
+            border-radius: 0;
+        }
+
+        .subscribe-input::placeholder {
+            color: #ccc;
+        }
+
+        .subscribe-btn {
+            background-color: #bbb;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            font-weight: 600;
+        }
+
+        .social-icons i {
+            font-size: 1.3rem;
+            margin-right: 15px;
+            color: white;
+        }
+
+        .brands img {
+            max-height: 40px;
+            margin: 10px;
+            /* filter: brightness(0) invert(1); */
+        }
+
+        hr {
+            border-color: #333;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Hero Image and Overlay -->
+    <div class="hero-container">
+        <!-- Background Image -->
+        <img src="img/hotel/background.png" class="bg-img" alt="Taj Hotel Background">
+
+        <!-- Overlayed Content -->
+        <div class="hero-content">
+            <h1 style="font-family: Cinzel,serif;">TAJ HOTELS</h1>
+            <div class="search-box d-flex align-items-center">
+                <i class="bi bi-search me-2"></i>
+                <input type="text" placeholder="Click here to search for Destinations or Hotels.">
+                <i class="bi bi-mic ms-2"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Explore Section -->
+    <div class="explore-section">
+        <h2 style="font-family: Cinzel,serif;">EXPLORE TAJ</h2>
+        <p>
+            From a luxury urban sanctum to the halls of royalty, an idyllic resort to a jungle clearing, our 5-star
+            hotels and luxury resorts bring your imagination to life.
+        </p>
+    </div>
+
+    <!-- sticky nav -->
+    <div class="container-fluid">
+        <nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top" style="background-color: rgba(0, 0, 0, 0.318);">
+            <div class="container-fluid">
+                <img id="navbarLogo" src="img/goldenlogo.png" alt="Logo" height="55rem" class="ms-5">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ms-5" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 ms-5 goldtxt" href="destination.html">DESTINATION</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 goldtxt" href="hotel.html">HOTELS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 goldtxt" href="">DINING</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 goldtxt" href="offers.html">OFFERS</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fs-5 goldtxt" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                MEMBERSHIP
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fs-5 goldtxt" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                MORE
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav me-auto mb-2 ms-5">
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 goldtxt ms-5 mt-2" href="login.html">LOGIN / JOIN</a>
+                        </li>
+                    </ul>
+
+
+                    <form class="d-flex book me-5" role="search">
+                        <button class=" me-5"><strong>BOOK A STAY</strong></button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Tabs -->
+    <ul class="nav nav-tabs mt-3">
+        <li class="nav-item"><a class="nav-link" href="#">All</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">India</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Sri Lanka</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">South Africa</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Nepal</a></li>
+    </ul>
+
+    <!-- Featured Destinations -->
+    <div class="container mt-5">
+        <h3 class="mb-4" style="font-family: Cinzel,serif;">— FEATURED DESTINATIONS —</h3>
+
+
+        <!-- View Buttons -->
+        <div class="view-buttons mt-4">
+            <button disabled>LIST VIEW</button>
+            <button>MAP VIEW</button>
+        </div>
+    </div>
+
+
+    <!-- big slider -->
+    <div class="container py-5">
+
+        <!-- Search Row -->
+        <div class="row mb-5 align-items-center search-bar">
+            <div class="col-md-4 mb-3">
+                <input type="text" class="form-control" placeholder="🔍 Destination / City">
+            </div>
+            <div class="col-md-4 mb-3">
+                <select class="form-select border-0 border-bottom">
+                    <option selected>Brands</option>
+                    <option value="1">Taj</option>
+                    <option value="2">Vivanta</option>
+                </select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <select class="form-select border-0 border-bottom">
+                    <option selected>Themes</option>
+                    <option value="1">Luxury</option>
+                    <option value="2">Heritage</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Hotel Cards -->
+        <div class="row g-4">
+
+            <!-- Card 1 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/destination/b1.png" class="card-img-top" alt="Hotel 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">St. James’ Court, A Taj Hotel</h5>
+                        <p class="card-text">Immerse in London's history and style at St. James' Court, a Taj Hotel,
+                            offering a blend of Victorian grandeur and conte...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/destination/b2.png" class="card-img-top" alt="Hotel 2">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">The Pierre, A Taj Hotel, New York</h5>
+                        <p class="card-text">Experience timeless elegance at The Pierre, where Taj’s hospitality meets
+                            New York’s luxury, offering sophistication and...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- big slider -->
+    <div class="container py-5">
+        <!-- Hotel Cards -->
+        <div class="row g-4">
+            <!-- Card 3 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/destination/b3.png" class="card-img-top" alt="Hotel 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">St. James’ Court, A Taj Hotel</h5>
+                        <p class="card-text">Immerse in London's history and style at St. James' Court, a Taj Hotel,
+                            offering a blend of Victorian grandeur and conte...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/destination/b4.png" class="card-img-top" alt="Hotel 2">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">The Pierre, A Taj Hotel, New York</h5>
+                        <p class="card-text">Experience timeless elegance at The Pierre, where Taj’s hospitality meets
+                            New York’s luxury, offering sophistication and...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <!-- Hotel Cards -->
+        <div class="row g-4">
+            <!-- Card 5 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b5.png" class="card-img-top" alt="Hotel 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">St. James’ Court, A Taj Hotel</h5>
+                        <p class="card-text">Immerse in London's history and style at St. James' Court, a Taj Hotel,
+                            offering a blend of Victorian grandeur and conte...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b6.png" class="card-img-top" alt="Hotel 2">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">The Pierre, A Taj Hotel, New York</h5>
+                        <p class="card-text">Experience timeless elegance at The Pierre, where Taj’s hospitality meets
+                            New York’s luxury, offering sophistication and...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5">
+        <!-- Hotel Cards -->
+        <div class="row g-4">
+            <!-- Card 7 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b7.png" class="card-img-top" alt="Hotel 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">St. James’ Court, A Taj Hotel</h5>
+                        <p class="card-text">Immerse in London's history and style at St. James' Court, a Taj Hotel,
+                            offering a blend of Victorian grandeur and conte...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b8.png" class="card-img-top" alt="Hotel 2">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">The Pierre, A Taj Hotel, New York</h5>
+                        <p class="card-text">Experience timeless elegance at The Pierre, where Taj’s hospitality meets
+                            New York’s luxury, offering sophistication and...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5">
+        <!-- Hotel Cards -->
+        <div class="row g-4">
+            <!-- Card 9 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b9.png" class="card-img-top" alt="Hotel 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">St. James’ Court, A Taj Hotel</h5>
+                        <p class="card-text">Immerse in London's history and style at St. James' Court, a Taj Hotel,
+                            offering a blend of Victorian grandeur and conte...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b10.png" class="card-img-top" alt="Hotel 2">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">The Pierre, A Taj Hotel, New York</h5>
+                        <p class="card-text">Experience timeless elegance at The Pierre, where Taj’s hospitality meets
+                            New York’s luxury, offering sophistication and...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5">
+        <!-- Hotel Cards -->
+        <div class="row g-4">
+            <!-- Card 11 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b11.png" class="card-img-top" alt="Hotel 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">St. James’ Court, A Taj Hotel</h5>
+                        <p class="card-text">Immerse in London's history and style at St. James' Court, a Taj Hotel,
+                            offering a blend of Victorian grandeur and conte...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b12.png" class="card-img-top" alt="Hotel 2">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">The Pierre, A Taj Hotel, New York</h5>
+                        <p class="card-text">Experience timeless elegance at The Pierre, where Taj’s hospitality meets
+                            New York’s luxury, offering sophistication and...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5">
+        <!-- Hotel Cards -->
+        <div class="row g-4">
+            <!-- Card 13 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b13.png" class="card-img-top" alt="Hotel 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">St. James’ Court, A Taj Hotel</h5>
+                        <p class="card-text">Immerse in London's history and style at St. James' Court, a Taj Hotel,
+                            offering a blend of Victorian grandeur and conte...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 14 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b14.png" class="card-img-top" alt="Hotel 2">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">The Pierre, A Taj Hotel, New York</h5>
+                        <p class="card-text">Experience timeless elegance at The Pierre, where Taj’s hospitality meets
+                            New York’s luxury, offering sophistication and...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5">
+        <!-- Hotel Cards -->
+        <div class="row g-4">
+            <!-- Card 15 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b15.png" class="card-img-top" alt="Hotel 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">St. James’ Court, A Taj Hotel</h5>
+                        <p class="card-text">Immerse in London's history and style at St. James' Court, a Taj Hotel,
+                            offering a blend of Victorian grandeur and conte...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 16 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b16.png" class="card-img-top" alt="Hotel 2">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">The Pierre, A Taj Hotel, New York</h5>
+                        <p class="card-text">Experience timeless elegance at The Pierre, where Taj’s hospitality meets
+                            New York’s luxury, offering sophistication and...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5">
+        <!-- Hotel Cards -->
+        <div class="row g-4">
+            <!-- Card 17 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b17.png" class="card-img-top" alt="Hotel 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">St. James’ Court, A Taj Hotel</h5>
+                        <p class="card-text">Immerse in London's history and style at St. James' Court, a Taj Hotel,
+                            offering a blend of Victorian grandeur and conte...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 18 -->
+            <div class="col-md-6">
+                <div class="card hotel-card">
+                    <img src="img/hotel/b18.png" class="card-img-top" alt="Hotel 2">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">The Pierre, A Taj Hotel, New York</h5>
+                        <p class="card-text">Experience timeless elegance at The Pierre, where Taj’s hospitality meets
+                            New York’s luxury, offering sophistication and...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-gold">BOOK NOW</a>
+                            <a href="#" class="visit-link">VISIT HOTEL ➤</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- bottom crousel -->
+
+    <div class="container-fluid">
+        <!-- 🔹 Background Image Carousel -->
+        <section class="splide background-slider" id="background-slider" aria-label="Background Image Slider">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide"><img src="img/bgslide1.png" alt="" style="filter:brightness(50%);"></li>
+                    <li class="splide__slide"><img src="img/bgslide2.png" alt="" style="filter:brightness(50%);"></li>
+                    <li class="splide__slide"><img src="img/bgslide3.png" alt="" style="filter:brightness(50%);"></li>
+                    <li class="splide__slide"><img src="img/bgslide4.png" alt="" style="filter:brightness(50%);"></li>
+
+                </ul>
+            </div>
+        </section>
+
+        <!-- 🔹 Foreground Image Carousel -->
+        <div class="foreground-carousel">
+            <section class="splide" id="foreground-slider" aria-label="Foreground Image Slider">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+                                <div class="d-flex shadow"
+                                    style="width: 100%; height: 400px; border-radius: 0; background-color: white;">
+
+                                    <!-- Left Image (50%) -->
+                                    <div class="w-50 h-100">
+                                        <img src="img/bgslide1.png" alt="Taj"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+
+                                    <!-- Right Text (50%) -->
+                                    <div class="w-50 p-5 d-flex flex-column justify-content-center">
+                                        <h4 style="font-family: serif;">INDIA WITH TAJ</h4>
+                                        <p style="color: #555;">
+                                            Embark on the journey of a lifetime as you experience India with Taj. Create
+                                            unforgettable moments as you immerse yourself in the cultural and natural...
+                                        </p>
+                                        <a href="#" class="text-decoration-none text-warning fw-bold">MORE <span
+                                                class="ms-1">››</span></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="splide__slide">
+                            <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+                                <div class="d-flex shadow"
+                                    style="width: 100%; height: 400px; border-radius: 0; background-color: white;">
+
+                                    <!-- Left Image (50%) -->
+                                    <div class="w-50 h-100">
+                                        <img src="img/bgslide2.png" alt="Taj"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+
+                                    <!-- Right Text (50%) -->
+                                    <div class="w-50 p-5 d-flex flex-column justify-content-center">
+                                        <h4 style="font-family: serif;">INDIA WITH TAJ</h4>
+                                        <p style="color: #555;">
+                                            Embark on the journey of a lifetime as you experience India with Taj. Create
+                                            unforgettable moments as you immerse yourself in the cultural and natural...
+                                        </p>
+                                        <a href="#" class="text-decoration-none text-warning fw-bold">MORE <span
+                                                class="ms-1">››</span></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                        </li>
+
+                        <li class="splide__slide">
+                            <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+                                <div class="d-flex shadow"
+                                    style="width: 100%; height: 400px; border-radius: 0; background-color: white;">
+
+                                    <!-- Left Image (50%) -->
+                                    <div class="w-50 h-100">
+                                        <img src="img/bgslide3.png" alt="Taj"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+
+                                    <!-- Right Text (50%) -->
+                                    <div class="w-50 p-5 d-flex flex-column justify-content-center">
+                                        <h4 style="font-family: serif;">INDIA WITH TAJ</h4>
+                                        <p style="color: #555;">
+                                            Embark on the journey of a lifetime as you experience India with Taj. Create
+                                            unforgettable moments as you immerse yourself in the cultural and natural...
+                                        </p>
+                                        <a href="#" class="text-decoration-none text-warning fw-bold">MORE <span
+                                                class="ms-1">››</span></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+                                <div class="d-flex shadow"
+                                    style="width: 100%; height: 400px; border-radius: 0; background-color: white;">
+
+                                    <!-- Left Image (50%) -->
+                                    <div class="w-50 h-100">
+                                        <img src="img/bgslide4.png" alt="Taj"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+
+                                    <!-- Right Text (50%) -->
+                                    <div class="w-50 p-5 d-flex flex-column justify-content-center">
+                                        <h4 style="font-family: serif;">INDIA WITH TAJ</h4>
+                                        <p style="color: #555;">
+                                            Embark on the journey of a lifetime as you experience India with Taj. Create
+                                            unforgettable moments as you immerse yourself in the cultural and natural...
+                                        </p>
+                                        <a href="#" class="text-decoration-none text-warning fw-bold">MORE <span
+                                                class="ms-1">››</span></a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer container-fluid">
+        <div class="row text-white d-flex justify-content-between">
+            <!-- Subscribe -->
+            <div class="col-md-3 mb-4">
+                <h6>Subscribe for latest updates</h6>
+                <div class="d-flex">
+                    <input type="email" class="form-control subscribe-input me-2"
+                        placeholder="Enter your email Address">
+                    <button class="subscribe-btn">Subscribe</button>
+                </div>
+
+                <div class="mt-4">
+                    <h6>For bookings contact</h6>
+                    <p class="mb-1">1-800-111-825</p>
+                    <a href="mailto:reservations@ihcltata.com">reservations@ihcltata.com</a>
+                </div>
+
+                <div class="mt-3">
+                    <h6>Customer Support</h6>
+                    <a href="mailto:contacttaj@tajhotels.com">contacttaj@tajhotels.com</a><br>
+                    <a href="mailto:website.feedback@tajhotels.com">website.feedback@tajhotels.com</a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-3 mb-4 d-flex justify-content-between">
+                <div>
+                    <h6>Quick Links</h6>
+                    <a href="#">Hotels</a>
+                    <a href="#">Dining</a>
+                    <a href="#">Wellness</a>
+                    <a href="#">Timeless Weddings</a>
+                    <a href="#">Event Venues</a>
+                    <a href="#">Taj Magazine</a>
+                    <a href="#">Sitemap</a>
+                    <a href="#">HSBC Taj Credit Card</a>
+                </div>
+                <div>
+                    <h6>&nbsp;</h6>
+                    <a href="#">About Taj</a>
+                    <a href="#">Holidays</a>
+                    <a href="#">Offers</a>
+                    <a href="#">Gifting</a>
+                    <a href="#">Neupass</a>
+                    <a href="#">Epicure</a>
+                    <a href="#">Taj Blog</a>
+                </div>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="col-md-3 mb-4">
+                <h6>Connect with us</h6>
+                <div class="social-icons">
+                    <i class="bi bi-facebook"></i>
+                    <i class="bi bi-twitter-x"></i>
+                    <i class="bi bi-instagram"></i>
+                    <i class="bi bi-youtube"></i>
+                    <i class="bi bi-linkedin"></i>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Brand Logos -->
+        <div class="text-white">
+            <h6>Our Brands</h6>
+            <div class="row">
+                <div class="col-sm-11 mx-auto">
+
+
+                    <div class="d-flex flex-wrap align-items-center brands">
+                        <img src="img/whitelogo.png" alt="Taj">
+                        <img src="img/footer/footer1.png" alt="SeleQtions">
+                        <img src="img/footer/footer2.png" alt="Gateway">
+                        <img src="img/footer/footer3.png" alt="Vivanta">
+                        <img src="img/footer/footer4.png" alt="Ginger">
+                        <img src="img/footer/footer5.png" alt="Tree of Life">
+                        <img src="img/footer/footer6.png" alt="ama">
+                        <img src="img/footer/footer7.png" alt="Qmin">
+                        <img src="img/footer/footer8.png" alt="Taj (duplicate)">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+
+    <div class="row mb-4 mt-5" style="background-color: black; color: #f6f5f5;">
+        <div class="col-sm-11 mx-auto">
+            <div class="row">
+                <div class="col-sm-6">&copy;2025 The Indian Hotels Company Limited. All Rights Reserved.</div>
+                <div class="col-sm-6">Corporate |
+                    Pressroom |
+                    Work With Us |
+                    Terms of Service |
+                    Accessibility | <br>
+                    Investor Relations |
+                    Partners |
+                    Privacy Policy |
+                    Cookies Policy
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/splide.min.js"></script>
+
+
+    <script>
+        const navbar = document.getElementById("mainNavbar");
+        const logo = document.getElementById("navbarLogo");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+                logo.src = "img/goldenlogo.png"; // Set to white logo when scrolled
+            } else {
+                navbar.classList.remove("scrolled");
+                logo.src = "img/whitelogo.png"; // Back to original
+            }
+        }); 
+    </script>
+
+    <!-- splide 1 start -->
+
+    <script>
+        var splide = new Splide('.splide ', {
+            type: 'loop',
+            perPage: 8,
+            perMove: 1,
+            breakpoints: {
+                1200: { perPage: 6, gap: '0.5rem' },
+                640: { perPage: 3, gap: 0 },
+                350: { perPage: 2, gap: 0 },
+            },
+        });
+
+        splide.mount();
+    </script>
+
+    <!-- splide 1 end -->
+
+    <!-- JavaScript to Sync Both -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var backgroundSlider = new Splide('#background-slider', {
+
+                type: 'loop',
+                arrows: false,
+                pagination: false,
+                autoplay: true,
+                interval: 4000,
+                pauseOnHover: false,
+                resetProgress: false,
+            });
+
+            var foregroundSlider = new Splide('#foreground-slider', {
+
+                type: 'loop',
+                arrows: true,
+                pagination: true,
+                autoplay: true,
+                interval: 4000,
+                pauseOnHover: true,
+            });
+
+            // Sync both sliders
+            backgroundSlider.sync(foregroundSlider);
+
+            backgroundSlider.mount();
+            foregroundSlider.mount();
+        });
+    </script>
+
+
+
+
+
+</body>
+
+</html>
